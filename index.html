@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>ATTENDANCE Application</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body> 
+    
+<div class="container">
+    <h1>SIGN IN </h1>
+    <hr />
+    <br>
+    <form action="get">
+       
+    <label>Admin:
+        <input type="text" name="" placeholder=" email">
+    <label>
+
+<br><br>
+
+    <label>Password:
+        <input type="password" name="" placeholder="password">
+    </label>
+<br><br>
+    
+  <a href="index2.html" class="button">LOG IN</a>
+
+   </form>
+</div>
+</body>
+
+<script type="module">
+  // Import the functions you need from the SDKs you need
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/9.14.0/firebase-app.js";
+  import { getdatabase } from "https://www.gstatic.com/firebasejs/9.14.0/firebase-database.js";
+  import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.14.0/firebase-auth.js";
+  // TODO: Add SDKs for Firebase products that you want to use
+  // https://firebase.google.com/docs/web/setup#available-libraries
+
+  // Your web app's Firebase configuration
+  const firebaseConfig = {
+    apiKey: "AIzaSyAFWPUzgbDPdHM9jKvn1YS0zLzmpLI3AZs",
+    authDomain: "myfireprowithcrud-fa793.firebaseapp.com",
+    databaseURL: "https://myfireprowithcrud-fa793-default-rtdb.firebaseio.com",
+    projectId: "myfireprowithcrud-fa793",
+    storageBucket: "myfireprowithcrud-fa793.appspot.com",
+    messagingSenderId: "708461048571",
+    appId: "1:708461048571:web:1a63f0985e37bac776f65e"
+  };
+
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+  const database = getdatabase(app);
+  const auth = getAuth();
+
+
+  signin.addEventlistener('click' , (e) =>{
+
+    var email = document.getElementById('email').value;
+    var password = document.getElementById('password').value;
+
+    signInWithEmailAndPassword(auth, email, password)
+    .then((userCredential) => {
+    // Signed in 
+    const user = userCredential.user;
+    alert('user created!');
+    // ...
+  })
+  .catch((error) => {
+    const errorCode = error.code;
+    const errorMessage = error.message;
+
+    alert('errorMessage');
+    //.
+  });
+
+  });
+  
+</script>
+</html>
+
